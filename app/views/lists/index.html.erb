@@ -5,15 +5,17 @@
   </div>
 </div>
 <div>
-  <%= link_to "Create a movie list", class: "btn btn-flat" %>
+  <%= link_to "Create a movie list", class: "btn btn-success" %>
 </div>
 
 <h1>My lists</h1>
 
 <div class="cards">
   <% @lists.each do |list| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/3945317/pexels-photo-3945317.jpeg)">
-    <%= list.name %>
-    </div>
+    <%= link_to list_path(list), class: 'text-dark text-decoration-none' do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/3945317/pexels-photo-3945317.jpeg)">
+      <%= list.name %>
+      </div>
+    <% end %>
   <% end %>
 </div>
