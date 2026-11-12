@@ -1,0 +1,26 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/7991486/pexels-photo-7991486.jpeg);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+<div>
+  <%= link_to "Add a movie", class: "btn btn-flat" %>
+</div>
+
+<h1 class="text-center">My lists</h1>
+
+<div class="cards">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card">
+      <img src=<%= bookmark.movie.poster_url %> class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= bookmark.movie.title %></h5>
+        <p><%= bookmark.movie.overview %></p>
+        <p class="card-text"><i class="fa-solid fa-quote-left"></i><%= bookmark.comment %></p>
+        <div>
+          <%= link_to "Delete", class: "btn btn-flat" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
